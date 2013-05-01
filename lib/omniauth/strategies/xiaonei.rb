@@ -27,7 +27,7 @@ module OmniAuth
           :v      => "1.0",
           :format => "JSON",
           :access_token => access_token.token,
-          :fields => "name,email_hash,tinyurl,headurl,zidou,star,birthday,hometown_location,woke_history,university_history"
+          :fields => "name,email_hash,tinyurl,headurl,zidou,star,birthday,hometown_location,work_history,university_history"
         }
         conn = Faraday.new(:url => "http://api.renren.com") do |faraday|
           faraday.request  :url_encoded
@@ -42,7 +42,7 @@ module OmniAuth
       }
 
       info {
-        ("name,email_hash,tinyurl,headurl,zidou,star,birthday,hometown_location,woke_history,university_history").split(",").inject({}) { |t,v| t[v.to_sym] = raw_info[v];t }
+        ("name,email_hash,tinyurl,headurl,zidou,star,birthday,hometown_location,work_history,university_history").split(",").inject({}) { |t,v| t[v.to_sym] = raw_info[v];t }
       }
 
       extra {
