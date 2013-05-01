@@ -41,7 +41,7 @@ module OmniAuth
       }
 
       info {
-        (options[:fields] || "name,email_hash,tinyurl,headurl,zidou,star").split(",").inject({}) { |t,v| t[v.to_sym] = raw_info[v];t }
+        ("name,email_hash,tinyurl,headurl,zidou,star,birthday,hometown_location,woke_history,university_history").split(",").inject({}) { |t,v| t[v.to_sym] = raw_info[v];t }
       }
 
       extra {
