@@ -26,8 +26,9 @@ module OmniAuth
           :method => "users.getInfo",
           :v      => "1.0",
           :format => "JSON",
-          :access_token => access_token.token
-        }.merge!(fields)
+          :access_token => access_token.token,
+          :fields => "name,email_hash,tinyurl,headurl,zidou,star,birthday,hometown_location,woke_history,university_history"
+        }
         conn = Faraday.new(:url => "http://api.renren.com") do |faraday|
           faraday.request  :url_encoded
           faraday.response :logger
